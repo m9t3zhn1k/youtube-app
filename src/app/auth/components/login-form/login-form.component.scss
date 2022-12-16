@@ -1,0 +1,99 @@
+@import "palette";
+
+.auth {
+  &__form {
+    &-container {
+      max-width: 350px;
+      margin: 5vh auto 0;
+      border-radius: 5px;
+      background-color: $background-grey;
+      filter: drop-shadow(5px 10px 10px $shadow-black);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      @media (max-width: 767px) {
+        padding: calc(14px + (24 - 14)*(100vw - 320px)/(767 - 320));
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+    margin: 0.5rem 0;
+  }
+
+  &__input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+  }
+
+  &__label {
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+    color: $grey;
+    margin-left: .25rem;
+  }
+
+  &__input {
+    width: 100%;
+    border: 1px solid $background-grey;
+    background-color: $background-light;
+    border-radius: .25rem;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    height: 2.3125rem;
+    padding: 0.5rem;
+    margin-bottom: 1.125rem;
+
+    &_password {
+      margin-bottom: 2rem;
+    }
+    
+    &:focus {
+      border: 1px solid $button-main;
+    }
+
+    &.error {
+      border: 1px solid $red;
+    }
+  }
+
+  &__error-message {
+    margin-left: .25rem;
+    color: $red;
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__submit-button {
+    margin-top: 1rem;
+    align-self: flex-end;
+    width: 124px;
+    padding: .625rem 2rem;
+    border-radius: 5px;
+    background-color: $button-main;
+    color: $white;
+    font-size: .75rem;
+    line-height: .875rem;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      background-color: $button-hover;
+    }
+
+    &:disabled {
+      background-color: $button-inactive;
+      cursor: auto;
+    }
+  }
+}

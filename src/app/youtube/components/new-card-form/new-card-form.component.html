@@ -1,0 +1,103 @@
+<form class="new-card-form" [formGroup]="newCardForm" novalidate (ngSubmit)="submit()">
+  <div class="new-card-form__container">
+    <h4 class="new-card-form__title">Create new card</h4>
+    <div class="new-card-form__input-item">
+      <label for="title" class="new-card-form__label">title</label>
+      <input
+        #titleInput
+        type="text"
+        class="new-card-form__input"
+        autofocus
+        name="title"
+        placeholder="Title"
+        formControlName="title"
+        [ngClass]="newCardForm.controls['title'].invalid && newCardForm.controls['title'].touched ? 'error' : ''">
+      <p
+        class="new-card-form__error-message"
+        *ngIf="newCardForm.controls['title'].invalid && newCardForm.controls['title'].touched"
+      >
+      {{
+        titleValidator(titleInput).error
+      }}
+      </p>
+    </div>
+    <div class="new-card-form__input-item">
+      <label for="description" class="new-card-form__label">description</label>
+      <input
+        type="text"
+        class="new-card-form__input"
+        name="description"
+        placeholder="Description"
+        formControlName="description"
+        [ngClass]="newCardForm.controls['description'].invalid && newCardForm.controls['description'].touched ? 'error' : ''">
+      <p
+        class="new-card-form__error-message"
+        *ngIf="newCardForm.controls['description'].invalid && newCardForm.controls['description'].touched"
+      >
+        The description is too long
+      </p>
+    </div>
+    <div class="new-card-form__input-item">
+      <label for="image" class="new-card-form__label">image</label>
+      <input
+        type="text"
+        class="new-card-form__input"
+        name="image"
+        placeholder="Image link"
+        formControlName="imageLink"
+        [ngClass]="newCardForm.controls['imageLink'].invalid && newCardForm.controls['imageLink'].touched ? 'error' : ''">
+      <p
+        class="new-card-form__error-message"
+        *ngIf="newCardForm.controls['imageLink'].invalid && newCardForm.controls['imageLink'].touched"
+      >
+        {{
+          !newCardForm.controls['imageLink'].value.length ?
+          'Please enter a link to the image' :
+          'The image link is invalid'
+        }}
+      </p>
+    </div>
+    <div class="new-card-form__input-item">
+      <label for="video" class="new-card-form__label">video</label>
+      <input
+        type="text"
+        class="new-card-form__input"
+        name="video"
+        placeholder="Video link"
+        formControlName="videoLink"
+        [ngClass]="newCardForm.controls['videoLink'].invalid && newCardForm.controls['videoLink'].touched ? 'error' : ''">
+      <p
+        class="new-card-form__error-message"
+        *ngIf="newCardForm.controls['videoLink'].invalid && newCardForm.controls['videoLink'].touched"
+      >
+        {{
+          !newCardForm.controls['videoLink'].value.length ?
+          'Please enter a link to the video' :
+          'The video link is invalid'
+        }}
+      </p>
+    </div>
+    <div class="new-card-form__input-item">
+      <label for="date" class="new-card-form__label">date</label>
+      <input
+        #dateInput
+        type="date"
+        class="new-card-form__input"
+        name="date"
+        formControlName="date"
+        [ngClass]="newCardForm.controls['date'].invalid && newCardForm.controls['date'].touched ? 'error' : ''"/>
+      <p
+        class="new-card-form__error-message"
+        *ngIf="newCardForm.controls['date'].invalid && newCardForm.controls['date'].touched"
+      >
+        {{
+          dateValidator(dateInput).error
+        }}
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="new-card-form__submit-button"
+      [disabled]="newCardForm.invalid">Create card</button>
+  </div>
+</form>

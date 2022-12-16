@@ -1,0 +1,10 @@
+<div class="card" border-color-for-date [date]="data.date">
+  <div class="card__image">
+    <img [src]="data.imageLink" [alt]="data.title">
+  </div>
+  <p class="card__title">{{ data.title }}</p>
+  <p *ngIf="data.description" class="card__description">{{ data.description }}</p>
+  <button
+    class="card__button-more"
+    disabled>more...</button>
+</div>

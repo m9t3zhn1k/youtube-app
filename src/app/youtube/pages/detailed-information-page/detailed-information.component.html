@@ -1,0 +1,26 @@
+<section class="container detailed-info__container" *ngFor="let video of videos | async">
+  <button class="detailed-info__button-back" routerLink=""></button>
+  <div class="detailed-info__content">
+    <div class="detailed-info__image-container">
+      <div  class="detailed-info__image">
+        <img [src]="video.snippet.thumbnails.standard.url" [alt]="video.snippet.title">
+      </div>
+    </div>
+    <div
+      class="detailed-info__text-container"
+      border-color-for-date
+      [date]="video.snippet.publishedAt">
+      <div class="detailed-info__title-container">
+        <h2 class="detailed-info__title">{{ video.snippet.title }}</h2>
+        <span class="detailed-info__publish-date">{{ video.snippet.publishedAt | date:"fullDate" }}</span>
+      </div>
+      <div class="detailed-info__description-container">
+        <p class="detailed-info__subtitle">Description:</p>
+        <p class="detailed-info__description">{{ video.snippet.description }}</p>
+      </div>
+      <app-card-statistics
+        class="card__stats-container"
+        [statistics]="video.statistics"></app-card-statistics>
+    </div>
+  </div>
+</section>

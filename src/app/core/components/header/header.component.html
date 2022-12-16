@@ -1,0 +1,33 @@
+<div class="container header__container">
+  <div class="header__content">
+    <div class="header__logo" routerLink=""></div>
+    <input
+      class="header__search"
+      id="search-input"
+      type="text"
+      autofocus
+      [disabled]="!!(isAuthorized | async) === false"
+      placeholder="What are you want to find out?">
+    <button
+      class="header__settings-button"
+      (click)="toggleSortingPanel()"
+      [disabled]="!!(isAuthorized | async) === false">
+      <span></span>
+    </button>
+  </div>
+  <div class="header__login">
+    <p class="header__login-name">
+      {{
+        (isAuthorized | async)?.login ?? ''
+      }}
+    </p>
+    <button
+      class="header__login-button"
+      routerLink="/auth"
+      (click)="handleClickOnIcon()">
+      <span class="header__login-text">
+        {{ !!(isAuthorized | async) ? 'Logout' : 'Login'}}
+      </span>
+    </button>
+  </div>
+</div>

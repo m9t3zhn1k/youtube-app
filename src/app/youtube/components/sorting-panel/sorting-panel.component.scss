@@ -1,0 +1,78 @@
+@import "palette";
+
+.sorting {
+  background-color: $background-grey;
+  display: flex;
+  justify-content: center;
+  font-size: .75rem;
+  line-height: .875rem;
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 420px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    text-shadow: 0px 4px 4px $shadow-black;
+    color: $grey;
+    display: flex;
+    align-items: center;
+  }
+
+  &__items {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+
+    @media (max-width: 767px) {
+      gap: calc(8px + (20 - 8)*(100vw - 320px)/(767 - 320));
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    text-decoration-line: underline;
+    color: $button-main;
+    transition: all .3s;
+    user-select: none;
+    text-align: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $button-hover;
+    }
+
+    &_input {
+      text-decoration-line: none;
+      display: flex;
+      gap: 10px;
+
+      &:hover {
+        cursor: default;
+        color: $button-main;
+      }
+
+      & > input {
+        width: 149px;
+        height: 13px;
+        border: 1px solid $white;
+        font-size: 10px;
+        padding: 0px 3px;
+        
+        @media (max-width: 420px) {
+          width: calc(80px + (149 - 80)*(100vw - 320px)/(420 - 320));
+        }
+
+        &:focus {
+          border: 1px solid $button-main;
+        }
+      }
+    }
+  }
+}

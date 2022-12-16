@@ -1,0 +1,17 @@
+@import 'palette';
+
+.new-card__button {
+  border-radius: .25rem;
+  background-color: $button-main;
+  color: $white;
+  transition: all .3s;
+  padding: 0.25rem 0.5rem;
+  font-size: .75rem;
+  line-height: .875rem;
+  filter: drop-shadow(2px 0px 4px $button-main);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $button-hover;
+  }
+}

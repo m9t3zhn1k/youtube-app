@@ -1,0 +1,13 @@
+<div class="card" border-color-for-date [date]="snippet.publishedAt">
+  <div class="card__image">
+    <img [src]="snippet.thumbnails.medium.url" [alt]="snippet.title">
+  </div>
+  <app-card-statistics
+    class="card__stats-container"
+    [statistics]="statistics"></app-card-statistics>
+  <p class="card__title">{{ snippet.title }}</p>
+  <button
+    class="card__button-more"
+    [routerLink]="['details', id]"
+    (click)="setData()">more...</button>
+</div>

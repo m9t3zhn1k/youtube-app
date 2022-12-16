@@ -1,0 +1,34 @@
+.card__stats {
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+
+  &-image {
+    height: 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &_views {
+      width: 20px;
+      background-image: url(../../../../assets/svg/viewed.svg);
+    }
+
+    &_likes {
+      width: 15px;
+      background-image: url(../../../../assets/svg/liked.svg);
+    }
+
+    &_dislikes {
+      width: 15px;
+      background-image: url(../../../../assets/svg/dislike.svg);
+    }
+
+    &_comments {
+      width: 13px;
+      background-image: url(../../../../assets/svg/comments.svg);
+    }
+  }
+}

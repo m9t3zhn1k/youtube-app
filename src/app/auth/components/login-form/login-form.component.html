@@ -1,0 +1,48 @@
+<form class="auth__form" [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+  <div class="auth__form-container">
+    <h4 class="auth__title">Login</h4>
+    <div class="auth__input-item">
+      <label for="login" class="auth__label">login</label>
+      <input
+        #loginInput
+        type="text"
+        name="login"
+        class="auth__input"
+        autofocus
+        placeholder="Login"
+        formControlName="login"
+        [ngClass]="loginForm.controls['login'].invalid && loginForm.controls['login'].touched ? 'error' : ''" />
+      <p
+        class="auth__error-message"
+        *ngIf="loginForm.controls['login'].invalid && loginForm.controls['login'].touched"
+      >
+        {{
+          loginInput.value.length ?
+          'The login email is invalid' :
+          'Please enter a login email'
+        }}
+      </p>
+    </div>
+    <div class="auth__input-item">
+      <label for="password" class="auth__label">password</label>
+      <input
+        #passwordInput
+        type="password"
+        name="password"
+        class="auth__input auth__input_password"
+        placeholder="Password"
+        formControlName="password"
+        [ngClass]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched ? 'error' : ''" />
+      <p
+        class="auth__error-message"
+        *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
+      >
+        Your password isn't strong enough <br> {{ passwordValidator(passwordInput).error }}
+      </p>
+    </div>
+    <button
+      type="submit"
+      class="auth__submit-button"
+      [disabled]="loginForm.invalid">Login</button>
+  </div>
+</form>

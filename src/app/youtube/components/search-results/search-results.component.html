@@ -1,0 +1,12 @@
+<section class="container search-results__container">
+  <app-custom-card-item
+    *ngFor="let item of cardsCollectionCustom$ | async"
+    [data]="item"
+  ></app-custom-card-item>
+  <app-search-result-item
+    *ngFor="let item of (cardsCollectionYoutube$ | async | cardsSorting: (sortingValue | async) | cardsFilter: (filterValue | async))"
+    [statistics]="item.statistics"
+    [snippet]="item.snippet"
+    [id]="item.id"
+  ></app-search-result-item>
+</section>

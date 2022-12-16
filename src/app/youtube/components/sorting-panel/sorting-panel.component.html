@@ -1,0 +1,14 @@
+<section class="sorting">
+  <div class="container sorting__container">
+    <p class="sorting__title">Sorting by:</p>
+    <ul class="sorting__items">
+      <li class="sorting__item" (click)="setSortingValue('date')">date</li>
+      <li class="sorting__item" (click)="setSortingValue('views')">count of views</li>
+      <li class="sorting__item sorting__item_input">
+        by word or sentance
+        <input type="text" (keyup)="setFilteringValue()" [(ngModel)]="filterValue">
+      </li>
+    </ul>
+    <ng-content></ng-content>
+  </div>
+</section>

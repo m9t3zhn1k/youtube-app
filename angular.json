@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "projects": {
+    "youtube-client-app": {
+      "projectType": "application",
+      "prefix": "app",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/youtube-client-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json",
+            "preserveSymlinks": true,
+            "aot": true,
+            "styles": ["src/app/app.component.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/"
+              ]
+            },
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "youtube-client-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "youtube-client-app",
+  "cli": {
+    "analytics": "368195d4-ba1c-4fc3-9256-beaee70b95f0",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
+}

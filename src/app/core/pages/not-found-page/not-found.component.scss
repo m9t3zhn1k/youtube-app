@@ -1,0 +1,30 @@
+@import "palette";
+
+.not-found {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 1.5rem;
+    margin-top: 25vh;
+  }
+
+  &__image {
+    height: 100px;
+    width: 100px;
+    background-image: url('../../../../assets/svg/not-found.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__notice {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    color: $grey;
+    /* max-width: 15rem; */
+    flex-shrink: 2;
+  }
+}
